@@ -50,7 +50,7 @@
 <body>
     <div class="container">
         <h1>Cadastro</h1>
-        <form action="{& url 'cadastro' &}" method="post">
+        <form action="{% url 'cadastro' %}" method="POST">
             {% csrf_token %}
             <input type="text" name="username" placeholder="Nome de usuário" required>
             <input type="email" name="email" placeholder="Email" required>

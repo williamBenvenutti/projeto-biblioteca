@@ -27,7 +27,7 @@ def Login(request):
         except:
             return render(request, 'login.html')
         if user.check_password(password):
-            return render(request, 'pagina-inicial.html')
+            return render(request, 'pagina-inicial.html', {'username': username})
         else:
             return render(request, 'login.html')
 
@@ -45,7 +45,7 @@ def CriarUsuario(request):
         emails = User.objects.filter(email=email)
 
         if senha != confirma_senha:
-            return HttpResponse('As senhs não são iguais')
+            return HttpResponse('As senhas não são iguais')
 
         if users.exists():
             return HttpResponse("Já existe um usuário com esse username")
@@ -56,4 +56,4 @@ def CriarUsuario(request):
             user.set_password(senha)
             user.save()
 
-            return HttpResponse("Usuário criado com sucesso!")
+            return render(request, 'login.html')
