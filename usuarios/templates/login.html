@@ -3,56 +3,82 @@
     <head>
     <title>Cadastro</title>
         <style>
-            body {
-                font-family: Arial, sans-serif;
+            *{
                 margin: 0;
                 padding: 0;
-                background-color: #f1f1f1;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+    
             }
 
-            .container {
-                max-width: 400px;
-                margin: 0 auto;
-                padding: 20px;
+            body{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: linear-gradient(to bottom, #e5edff, #cbdaff);
+
+            }
+
+            .container{
+                width: 500px;
                 background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                padding: 40px;
+                text-align: center;
             }
 
-            h1 {
-                text-align: center;
+            h1{
+                font-size: 32px;
                 margin-bottom: 20px;
+                color: #274389;
             }
 
             input[type="text"],
             input[type="email"],
             input[type="password"] {
-                padding: 10px;
-                margin-bottom: 15px;
-                border-radius: 3px;
-                border: 1px solid #ccc;
+                display: block;
                 width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                border: 1px solid #274389;
+                outline: none;
+                font-size: 1rem;
             }
 
             input[type="submit"] {
-                padding: 10px;
-                background-color: #4CAF50;
-                color: #fff;
-                border: none;
+                transition : 1000ms;
+                display: block;
+                width: 40%;
+                padding: 8px;
+                border-radius: 5px;
+                border: 2px solid #274389;
+                background-color: white;
+                color: #274389;
+                font-size: 1rem;
                 cursor: pointer;
+                text-align: center;
+                margin: 0 auto;
             }
 
             input[type="submit"]:hover {
-                background-color: #45a049;
+                transition : 1000ms;
+                width: 50%;
+                transform : translateY(-0px);
+                background-color: #274389;
+                color: white;
+                border: solid 2px #274389;
             }
         </style>
     </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
+        <h1>TELA LOGIN</h1>
         <form  action="{% url 'logar' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Usuaio">
+            <input type="text" name="username" placeholder="Usuario">
             <input type="password" name="password" placeholder="Senha">
             <input type="submit" value="Login">
         </form>

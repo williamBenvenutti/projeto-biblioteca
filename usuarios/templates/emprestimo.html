@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Cadastro</title>
+    <title>Emprestimo</title>
         <style>
             *{
                 margin: 0;
@@ -76,13 +76,16 @@
     </head>
 <body>
     <div class="container">
-        <h1>Cadastro</h1>
-        <form action="{% url 'cadastro' %}" method="POST">
+        <h1>Cadastro Locador</h1>
+        <form action="{% url 'cadastro_pessoa' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Nome de usuário" required>
+            <input type="text" name="nome" placeholder="Nome de usuário" required>
             <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <input type="password" name="confirma_senha" placeholder="Confirmar senha" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="text" name="rua" placeholder="Rua" required>
+            <input type="text" name="bairro" placeholder="Bairro" required>
+            <input type="text" name="numero" placeholder="Número" required>
             <input type="submit" value="Cadastrar">
         </form>
     </div>

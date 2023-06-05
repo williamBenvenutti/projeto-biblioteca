@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meus Livros</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin-top: 100px;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .mostra-livro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 500px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .card-divider h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #274389;
+        }
+
+        .card-divider p {
+            color: #666;
+        }
+
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="date"],
+      select {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border-radius: 5px;
+          border: 1px solid #274389;
+          outline: none;
+          font-size: 1rem;
+      }
+
+      .search-form {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+
+      .search-form input[type="text"] {
+          margin-right: 10px;
+      }
+
+      .search-form button {
+          border: none;
+          background-color: #274389;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          outline: none;
+          font-size: 1rem;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>Meus Livros</h1>
+    <div class="mostra-livro">
+        <form class="search-form" method="GET" action="{% url 'mostra_livro' %}">
+            <input type="text" name="pesquisa" placeholder="Pesquisar livro">
+            <button type="submit">Pesquisar</button>
+        </form>
+        {% for livro in livros %}
+        <div class="card">
+            <div class="card-divider"></div>
+            <h3>{{ livro.titulo }}</h3>
+            <p>Autor: {{ livro.autor }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

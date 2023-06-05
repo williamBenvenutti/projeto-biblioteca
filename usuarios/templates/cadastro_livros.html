@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Cadastro</title>
+    <title>Cadastro Pessoas</title>
         <style>
             *{
                 margin: 0;
@@ -38,7 +38,9 @@
 
             input[type="text"],
             input[type="email"],
-            input[type="password"] {
+            input[type="password"],
+            input[type="date"],
+            select {
                 display: block;
                 width: 100%;
                 padding: 10px;
@@ -76,13 +78,31 @@
     </head>
 <body>
     <div class="container">
-        <h1>Cadastro</h1>
-        <form action="{% url 'cadastro' %}" method="POST">
+        <h1>Cadastro Livros</h1>
+        <form action="{% url 'cadastro_livro' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Nome de usuário" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <input type="password" name="confirma_senha" placeholder="Confirmar senha" required>
+            <input type="text" name="titulo" placeholder="Titulo" required>
+            <input type="text" name="autor" placeholder="Autor" required>
+            <input type="text" name="editora" placeholder="Editora" required>
+            <input type="date" name="data_lancamento" placeholder="Ano de Lançamento" required>
+            <select name="genero">
+                <option value="Ficão">Ficção</option>
+                <option value="Romance">Romance</option>
+                <option value="Literatura">Literatura</option>
+                <option value="Terror">Terror</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Comédia Romântica">Comédia Romântica</option>
+                <option value="Romance Contemporâneo">Romance Contemporâneo</option>
+                <option value="Tratado">Tratado</option>
+            </select>
+            <select name="idioma">
+                <option value="Português - Brasil">Português - Brasil</option>
+                <option value="Português - Portugal">Português - Portugal</option>
+                <option value="Inglês">Inglês</option>
+                <option value="Alemão">Alemão</option>
+                <option value="Espanhol">Espanhol</option>
+            </select>
             <input type="submit" value="Cadastrar">
         </form>
     </div>
